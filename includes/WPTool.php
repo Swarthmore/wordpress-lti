@@ -116,6 +116,7 @@ class WPTool extends Tool
             $user->first_name = $this->userResult->firstname;
             $user->last_name = $this->userResult->lastname;
             $user->display_name = $this->userResult->fullname;
+            $user->email = $this->userResult->email;
             $result = wp_insert_user($user);
         } else {
             // Create username if user provisioning is on
@@ -126,7 +127,7 @@ class WPTool extends Tool
                     'user_nicename' => $user_login,
                     'first_name' => $this->userResult->firstname,
                     'last_name' => $this->userResult->lastname,
-                    //'user_email'=> $this->userResult->email,
+                    'user_email'=> $this->userResult->email,
                     //'user_url' => 'http://',
                     'display_name' => $this->userResult->fullname
                 )
