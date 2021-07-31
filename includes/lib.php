@@ -61,7 +61,7 @@ class LTI_WP_User
     public $firstname;
     public $lastname;
     public $fullname;
-    //public $email;
+    public $email;
     public $roles;
     public $staff = false;
     public $learner = false;
@@ -92,7 +92,7 @@ class LTI_WP_User
             $this->firstname = $lti_user_from_platform->firstname;
             $this->lastname = $lti_user_from_platform->lastname;
             $this->fullname = $lti_user_from_platform->fullname;
-            //$this->email = $lti_user_from_platform->email;
+            $this->email = $lti_user_from_platform->email;
             $role_name = '';
             if (!empty($lti_user_from_platform->roles)) {
                 foreach ($lti_user_from_platform->roles as $role) {
@@ -437,7 +437,7 @@ function lti_update($choice)
                 'user_pass' => wp_generate_password(),
                 'first_name' => $new_u->firstname,
                 'last_name' => $new_u->lastname,
-                //'user_email'=> $new_u->email,
+                'user_email'=> $new_u->email,
                 //'user_url' => 'http://',
                 'display_name' => $new_u->fullname
             )
